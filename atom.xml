@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lixhbs.gitee.io/blog/"/>
-  <updated>2018-09-29T11:30:05.110Z</updated>
+  <updated>2018-10-12T06:22:03.437Z</updated>
   <id>https://lixhbs.gitee.io/blog/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【一起学Spring Cloud的官方英文文档】第一篇 Service Discovery | 服务发现 - Eureka</title>
+    <title>【参照官方英文文档学Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka</title>
     <link href="https://lixhbs.gitee.io/blog/sc-f-e-02/"/>
     <id>https://lixhbs.gitee.io/blog/sc-f-e-02/</id>
     <published>2018-09-29T10:41:43.000Z</published>
-    <updated>2018-09-29T11:30:05.110Z</updated>
+    <updated>2018-10-12T06:22:03.437Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>从来没有写过类似的教程，也只能写一步算一步了。<br>声明下，别人的英文稀烂，就是想通过这个文档来摸索程序员学习英文的道道，说实话让我去背单词还不如SHA了我，而且我也没有那毅力。在这个过程中如果有啥问题希望大家一起沟通，有好的建议也希望能告诉我，感激不尽！！！<br>要么一鼓作气，要么立马放弃。</p></blockquote><p>看到Spring Cloud 的文档里面是先讲的是<code>Spring Cloud Config</code> ，为了方便，或者说参考其他大佬的教程，我也会把Config放到后面写。</p><h2 id="Service-Discovery-Eureka-Server-服务发现：Eureka服务端"><a href="#Service-Discovery-Eureka-Server-服务发现：Eureka服务端" class="headerlink" title="Service Discovery: Eureka Server | 服务发现：Eureka服务端"></a>Service Discovery: Eureka Server | 服务发现：Eureka服务端</h2><h2 id="Service-Discovery-Eureka-Clients-服务发现：Eureka客户端"><a href="#Service-Discovery-Eureka-Clients-服务发现：Eureka客户端" class="headerlink" title="Service Discovery: Eureka Clients | 服务发现：Eureka客户端"></a>Service Discovery: Eureka Clients | 服务发现：Eureka客户端</h2>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>从来没有写过类似的教程，也只能写一步算一步了。<br>声明下，别人的英文稀烂，就是想通过这个文档来摸索程序员学习英文的道道，说实话让我去背单词还不如SHA了我，而且我也没有那毅力。在这个过程中如果有啥问题希望大家一起沟通，有好的建议也希望能告诉我，感激不尽！！！<br>要么一鼓作气，要么立马放弃。</p></blockquote><p>看到Spring Cloud 的文档里面是先讲的是<code>Spring Cloud Config</code> ，为了方便，或者说参考其他大佬的教程，我也会把Config放到后面写。</p><h1 id="Spring-Cloud-Netflix"><a href="#Spring-Cloud-Netflix" class="headerlink" title="Spring Cloud Netflix"></a>Spring Cloud Netflix</h1><p><a href="https://en.wikipedia.org/wiki/Netflix" target="_blank" rel="noopener">Netflix</a> 是一家媒体提供商，应该很厉害！</p><h2 id="Service-Discovery-Eureka-Server-服务发现：Eureka服务端"><a href="#Service-Discovery-Eureka-Server-服务发现：Eureka服务端" class="headerlink" title="Service Discovery: Eureka Server | 服务发现：Eureka服务端"></a>Service Discovery: Eureka Server | 服务发现：Eureka服务端</h2><h2 id="Service-Discovery-Eureka-Clients-服务发现：Eureka客户端"><a href="#Service-Discovery-Eureka-Clients-服务发现：Eureka客户端" class="headerlink" title="Service Discovery: Eureka Clients | 服务发现：Eureka客户端"></a>Service Discovery: Eureka Clients | 服务发现：Eureka客户端</h2>]]></content>
     
     <summary type="html">
     
@@ -35,7 +35,7 @@
     
     </summary>
     
-      <category term="一起学Spring Cloud的官方英文文档" scheme="https://lixhbs.gitee.io/blog/categories/%E4%B8%80%E8%B5%B7%E5%AD%A6Spring-Cloud%E7%9A%84%E5%AE%98%E6%96%B9%E8%8B%B1%E6%96%87%E6%96%87%E6%A1%A3/"/>
+      <category term="参照官方英文文档学Spring Cloud" scheme="https://lixhbs.gitee.io/blog/categories/%E5%8F%82%E7%85%A7%E5%AE%98%E6%96%B9%E8%8B%B1%E6%96%87%E6%96%87%E6%A1%A3%E5%AD%A6Spring-Cloud/"/>
     
     
       <category term="Spring Cloud" scheme="https://lixhbs.gitee.io/blog/tags/Spring-Cloud/"/>
@@ -45,11 +45,11 @@
   </entry>
   
   <entry>
-    <title>【一起学Spring Cloud的官方英文文档】第二篇 Spring Cloud Config | 配置中心 - Config</title>
+    <title>【参照官方英文文档学Spring Cloud】第二篇 Spring Cloud Config | 配置中心 - Config</title>
     <link href="https://lixhbs.gitee.io/blog/sc-f-e-03/"/>
     <id>https://lixhbs.gitee.io/blog/sc-f-e-03/</id>
     <published>2018-09-29T10:41:43.000Z</published>
-    <updated>2018-09-29T11:17:19.097Z</updated>
+    <updated>2018-10-12T06:25:24.500Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>从来没有写过类似的教程，也只能写一步算一步了。<br>声明下，别人的英文稀烂，就是想通过这个文档来摸索程序员学习英文的道道，说实话让我去背单词还不如SHA了我，而且我也没有那毅力。在这个过程中如果有啥问题希望大家一起沟通，有好的建议也希望能告诉我，感激不尽！！！<br>要么一鼓作气，要么立马放弃。</p></blockquote><p>看到Spring Cloud 的文档里面是先将的<code>Spring Cloud Config</code> ，作为一个从来没有用过开源框架的程序员来说，不能体会到<code>Spring Cloud Config</code>的精髓，也希望有大佬能告知。</p><h1 id="Spring-Cloud-简介"><a href="#Spring-Cloud-简介" class="headerlink" title="Spring Cloud 简介"></a>Spring Cloud 简介</h1>]]></content>
     
@@ -63,7 +63,7 @@
     
     </summary>
     
-      <category term="一起学Spring Cloud的官方英文文档" scheme="https://lixhbs.gitee.io/blog/categories/%E4%B8%80%E8%B5%B7%E5%AD%A6Spring-Cloud%E7%9A%84%E5%AE%98%E6%96%B9%E8%8B%B1%E6%96%87%E6%96%87%E6%A1%A3/"/>
+      <category term="参照官方英文文档学Spring Cloud" scheme="https://lixhbs.gitee.io/blog/categories/%E5%8F%82%E7%85%A7%E5%AE%98%E6%96%B9%E8%8B%B1%E6%96%87%E6%96%87%E6%A1%A3%E5%AD%A6Spring-Cloud/"/>
     
     
       <category term="Spring Cloud" scheme="https://lixhbs.gitee.io/blog/tags/Spring-Cloud/"/>
@@ -73,27 +73,27 @@
   </entry>
   
   <entry>
-    <title>【一起学Spring Cloud的官方英文文档】目录篇 - 我是「煮酒泛舟」</title>
+    <title>【参照官方英文文档学Spring Cloud】目录篇 - 我是「煮酒泛舟」</title>
     <link href="https://lixhbs.gitee.io/blog/sc-f-e-01/"/>
     <id>https://lixhbs.gitee.io/blog/sc-f-e-01/</id>
     <published>2018-09-12T13:32:27.000Z</published>
-    <updated>2018-10-08T14:31:44.031Z</updated>
+    <updated>2018-10-12T06:25:13.287Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>我不是大佬，如果能将《一起学Spring Cloud的官方英文文档》这一系列文章完成那应该在成为大佬的路上了。</p></blockquote><p>教程源码Github地址：<a href="https://github.com/lixhubei/SpringCloudEnglish" target="_blank" rel="noopener">https://github.com/lixhubei/SpringCloudEnglish</a><br>教程源码Gitee地址：<a href="https://gitee.com/Lixhbs/SpringCloudEnglish" target="_blank" rel="noopener">https://gitee.com/Lixhbs/SpringCloudEnglish</a></p><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul><li>Spring Boot: v2.0.4</li><li>Spring Cloud: Finchley SR1</li><li>IDEA</li><li>JDK 1.8</li></ul><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>目前网上<code>Spring Cloud</code>系列教程还是比较丰富的，例如：<a href="http://blog.didispace.com/Spring-Cloud%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">程序员DD - Spring Cloud基础教程</a>、<a href="https://blog.csdn.net/forezp/article/details/70148833" target="_blank" rel="noopener">方志朋 - 史上最简单的 SpringCloud 教程</a>等大佬的系列文章。</p><p>上面两位大佬的教程让我逐渐的了解并认识了<code>Spring Cloud</code>，学习任何一项技能还是希望能理解的透透的，所以根据<a href="https://www.google.com.ph/search?newwindow=1&amp;safe=active&amp;hl=zh-CN&amp;ei=v3yYW4apBcjY0gKSsLHIBQ&amp;q=%E8%B4%B9%E6%9B%BC%E6%8A%80%E5%B7%A7&amp;oq=%E8%B4%B9%E6%9B%BC%E6%8A%80%E5%B7%A7&amp;gs_l=psy-ab.3...7422.7422.0.7971.1.1.0.0.0.0.366.366.3-1.1.0....0...1c.2.64.psy-ab..0.0.0....0.I32RkqLOV84" target="_blank" rel="noopener">终极学习法——费曼技巧</a>我将我所了解的<code>Spring Cloud</code>写下来。</p><p>由于英语对程序员是非常重要的,可以看下这位大佬的文章<a href="http://blog.jobbole.com/45296/#comment-158686" target="_blank" rel="noopener">老码农教你学英语</a>，所以这里我也开始我阅读英文文档的第一步，如果大家有好的学习方法可以和我交流。以前也有无数次学习英语的冲动，每次都拿起各种背单词的APP苦学一两周，然并卵，<code>一起学Spring Cloud的官方英文文档</code>系列教程，我会以官方英文文档为主，和大家一起去搭建<code>Spring Cloud框架</code>。</p><h2 id="Spring-Cloud-简介"><a href="#Spring-Cloud-简介" class="headerlink" title="Spring Cloud 简介"></a>Spring Cloud 简介</h2><p>个人理解为多个功能组成的一个微服务解决方案的体系，里面包括服务发现、服务消费、路由、断路器等等工具，看发布的版本就能看出，Spring Cloud 不是某一种技术，而是集很多东西为一体的，当某些功能发布了版本后，Spring Cloud才会跟着发布版本。</p><h2 id="如何去学习英文文档和为什么要看英文文档"><a href="#如何去学习英文文档和为什么要看英文文档" class="headerlink" title="如何去学习英文文档和为什么要看英文文档"></a>如何去学习英文文档和为什么要看英文文档</h2><p>先说为什么去看英文文档，就只有一个原因，因为最新的技术都是英文版的，代码也是用英文的人发明的。<br>怎么去学，我之前有看过一个人的（突然忘记名字了，想起来再不上来）有个透析法，但是要有一定的英语基础，由于我算是没有基础的所以我想结合这个透析法，然后自己琢磨下如何去学，因为技术文章和其他的文章有点不一样，技术文章里面有很多的专业术语，我会把一些专业术语归纳一下，反正尽量少的靠死记硬背。</p><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul><li><a href="../sc-f-e-01">【一起学Spring Cloud的官方英文文档】目录篇 我是「煮酒泛舟」</a></li><li><a href="../sc-f-e-02">【一起学Spring Cloud的官方英文文档】第一篇 Service Discovery | 服务发现 - Eureka</a></li><li>【一起学Spring Cloud的官方英文文档】第二篇 Spring Cloud Config | 配置中心 - Config</li><li>【一起学Spring Cloud的官方英文文档】第三篇 Circuit Breaker | 断路器 - Hystrix</li><li>【一起学Spring Cloud的官方英文文档】第四篇 Client Side Load Balancer | 负载均衡 - ribbon</li><li>【一起学Spring Cloud的官方英文文档】第五篇 Router and Filter | 路由和过滤器 - Zuul</li><li>【一起学Spring Cloud的官方英文文档】第六篇 Declarative REST Client | 申明式REST客户端“服务消费者” - Feign</li></ul>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>我不是大佬，如果能将《参照官方英文文档学Spring Cloud》这一系列文章完成那应该在成为大佬的路上了。</p></blockquote><p>教程源码Github地址：<a href="https://github.com/lixhubei/SpringCloudEnglish" target="_blank" rel="noopener">https://github.com/lixhubei/SpringCloudEnglish</a><br>教程源码Gitee地址：<a href="https://gitee.com/Lixhbs/SpringCloudEnglish" target="_blank" rel="noopener">https://gitee.com/Lixhbs/SpringCloudEnglish</a></p><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul><li>Spring Boot: v2.0.4</li><li>Spring Cloud: Finchley SR1</li><li>IDEA</li><li>JDK 1.8</li></ul><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>目前网上<code>Spring Cloud</code>系列教程还是比较丰富的，例如：<a href="http://blog.didispace.com/Spring-Cloud%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">程序员DD - Spring Cloud基础教程</a>、<a href="https://blog.csdn.net/forezp/article/details/70148833" target="_blank" rel="noopener">方志朋 - 史上最简单的 SpringCloud 教程</a>等大佬的系列文章。</p><p>上面两位大佬的教程让我逐渐的了解并认识了<code>Spring Cloud</code>，学习任何一项技能还是希望能理解的透透的，所以根据<a href="https://www.google.com.ph/search?newwindow=1&amp;safe=active&amp;hl=zh-CN&amp;ei=v3yYW4apBcjY0gKSsLHIBQ&amp;q=%E8%B4%B9%E6%9B%BC%E6%8A%80%E5%B7%A7&amp;oq=%E8%B4%B9%E6%9B%BC%E6%8A%80%E5%B7%A7&amp;gs_l=psy-ab.3...7422.7422.0.7971.1.1.0.0.0.0.366.366.3-1.1.0....0...1c.2.64.psy-ab..0.0.0....0.I32RkqLOV84" target="_blank" rel="noopener">终极学习法——费曼技巧</a>我将我所了解的<code>Spring Cloud</code>写下来。</p><p>由于英语对程序员是非常重要的,可以看下这位大佬的文章<a href="http://blog.jobbole.com/45296/#comment-158686" target="_blank" rel="noopener">老码农教你学英语</a>，所以这里我也开始我阅读英文文档的第一步，如果大家有好的学习方法可以和我交流。以前也有无数次学习英语的冲动，每次都拿起各种背单词的APP苦学一两周，然并卵，<code>参照官方英文文档学Spring Cloud</code>系列教程，我会以官方英文文档为主，和大家一起去搭建<code>Spring Cloud框架</code>。</p><h2 id="Spring-Cloud-简介"><a href="#Spring-Cloud-简介" class="headerlink" title="Spring Cloud 简介"></a>Spring Cloud 简介</h2><p>个人理解为多个功能组成的一个微服务解决方案的体系，里面包括服务发现、服务消费、路由、断路器等等工具，看发布的版本就能看出，Spring Cloud 不是某一种技术，而是集很多东西为一体的，当某些功能发布了版本后，Spring Cloud才会跟着发布版本。</p><h2 id="如何去学习英文文档和为什么要看英文文档"><a href="#如何去学习英文文档和为什么要看英文文档" class="headerlink" title="如何去学习英文文档和为什么要看英文文档"></a>如何去学习英文文档和为什么要看英文文档</h2><p>先说为什么去看英文文档，就只有一个原因，因为最新的技术都是英文版的，代码也是用英文的人发明的。<br>怎么去学，我之前有看过一个人的（突然忘记名字了，想起来再不上来）有个透析法，但是要有一定的英语基础，由于我算是没有基础的所以我想结合这个透析法，然后自己琢磨下如何去学，因为技术文章和其他的文章有点不一样，技术文章里面有很多的专业术语，我会把一些专业术语归纳一下，反正尽量少的靠死记硬背。</p><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul><li><a href="../sc-f-e-01">【参照官方英文文档学Spring Cloud】目录篇 我是「煮酒泛舟」</a></li><li><a href="../sc-f-e-02">【参照官方英文文档学Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka</a></li><li>【参照官方英文文档学Spring Cloud】第二篇 Spring Cloud Config | 配置中心 - Config</li><li>【参照官方英文文档学Spring Cloud】第三篇 Circuit Breaker | 断路器 - Hystrix</li><li>【参照官方英文文档学Spring Cloud】第四篇 Client Side Load Balancer | 负载均衡 - ribbon</li><li>【参照官方英文文档学Spring Cloud】第五篇 Router and Filter | 路由和过滤器 - Zuul</li><li>【参照官方英文文档学Spring Cloud】第六篇 Declarative REST Client | 申明式REST客户端“服务消费者” - Feign</li></ul>]]></content>
     
     <summary type="html">
     
       
       
         &lt;blockquote&gt;
-&lt;p&gt;我不是大佬，如果能将《一起学Spring Cloud的官方英文文档》这一系列文章完成那应该在成为大佬的路上了。&lt;/p&gt;
+&lt;p&gt;我不是大佬，如果能将《参照官方英文文档学Spring Cloud》这一系列文章完成那应该在成为大佬的路上了。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;教程源码Github地址：&lt;a href=&quot;https://github.com/lixhub
+&lt;p&gt;教程源码Github地址：&lt;a href=&quot;https://github.com/lixhube
       
     
     </summary>
     
-      <category term="一起学Spring Cloud的官方英文文档" scheme="https://lixhbs.gitee.io/blog/categories/%E4%B8%80%E8%B5%B7%E5%AD%A6Spring-Cloud%E7%9A%84%E5%AE%98%E6%96%B9%E8%8B%B1%E6%96%87%E6%96%87%E6%A1%A3/"/>
+      <category term="参照官方英文文档学Spring Cloud" scheme="https://lixhbs.gitee.io/blog/categories/%E5%8F%82%E7%85%A7%E5%AE%98%E6%96%B9%E8%8B%B1%E6%96%87%E6%96%87%E6%A1%A3%E5%AD%A6Spring-Cloud/"/>
     
     
       <category term="Spring Cloud" scheme="https://lixhbs.gitee.io/blog/tags/Spring-Cloud/"/>
