@@ -5,13 +5,13 @@
     
     <title>【参照官方英文文档学Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka | 煮酒泛舟的技术栈</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="从来没有写过类似的教程，也只能写一步算一步了。想通过这个文档来摸索通过阅读英文文档学习最新的技术，说实话让我去背单词还不如SHA了我，而且我也没有那毅力。在这个过程中如果有啥问题希望大家一起沟通，有好的建议也希望能告诉我，感激不尽！！！  看到Spring Cloud 的文档里面是先讲的是Spring Cloud Config ，为了方便，或者说参考其他大佬的教程，我也会把Config放到后面写">
+    <meta name="description" content="从来没有写过类似的教程，也只能写一步算一步了。想通过这个文档来摸索通过阅读英文文档学习最新的技术，说实话让我去背单词还不如SHA了我，而且我也没有那毅力。在这个过程中如果有啥问题希望大家一起沟通，有好的建议也希望能告诉我，感激不尽！！！">
 <meta name="keywords" content="Spring Cloud,英文文档">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【参照官方英文文档学Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka">
 <meta property="og:url" content="https://lixhbs.gitee.io/blog/sc-f-e-01/index.html">
 <meta property="og:site_name" content="煮酒泛舟的技术栈">
-<meta property="og:description" content="从来没有写过类似的教程，也只能写一步算一步了。想通过这个文档来摸索通过阅读英文文档学习最新的技术，说实话让我去背单词还不如SHA了我，而且我也没有那毅力。在这个过程中如果有啥问题希望大家一起沟通，有好的建议也希望能告诉我，感激不尽！！！  看到Spring Cloud 的文档里面是先讲的是Spring Cloud Config ，为了方便，或者说参考其他大佬的教程，我也会把Config放到后面写">
+<meta property="og:description" content="从来没有写过类似的教程，也只能写一步算一步了。想通过这个文档来摸索通过阅读英文文档学习最新的技术，说实话让我去背单词还不如SHA了我，而且我也没有那毅力。在这个过程中如果有啥问题希望大家一起沟通，有好的建议也希望能告诉我，感激不尽！！！">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/20181016165813.png">
 <meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/20181016170056.png">
@@ -20,10 +20,10 @@
 <meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/20181018110319.png">
 <meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/20181022174105.png">
 <meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/20181022174136.png">
-<meta property="og:updated_time" content="2018-10-22T09:51:42.458Z">
+<meta property="og:updated_time" content="2018-10-23T06:30:10.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【参照官方英文文档学Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka">
-<meta name="twitter:description" content="从来没有写过类似的教程，也只能写一步算一步了。想通过这个文档来摸索通过阅读英文文档学习最新的技术，说实话让我去背单词还不如SHA了我，而且我也没有那毅力。在这个过程中如果有啥问题希望大家一起沟通，有好的建议也希望能告诉我，感激不尽！！！  看到Spring Cloud 的文档里面是先讲的是Spring Cloud Config ，为了方便，或者说参考其他大佬的教程，我也会把Config放到后面写">
+<meta name="twitter:description" content="从来没有写过类似的教程，也只能写一步算一步了。想通过这个文档来摸索通过阅读英文文档学习最新的技术，说实话让我去背单词还不如SHA了我，而且我也没有那毅力。在这个过程中如果有啥问题希望大家一起沟通，有好的建议也希望能告诉我，感激不尽！！！">
 <meta name="twitter:image" content="http://paz1myrij.bkt.clouddn.com/20181016165813.png">
     
 
@@ -275,6 +275,7 @@
             <blockquote>
 <p>从来没有写过类似的教程，也只能写一步算一步了。<br>想通过这个文档来摸索通过阅读英文文档学习最新的技术，说实话让我去背单词还不如SHA了我，而且我也没有那毅力。在这个过程中如果有啥问题希望大家一起沟通，有好的建议也希望能告诉我，感激不尽！！！</p>
 </blockquote>
+<a id="more"></a>
 <p>看到Spring Cloud 的文档里面是先讲的是<code>Spring Cloud Config</code> ，为了方便，或者说参考其他大佬的教程，我也会把Config放到后面写。</p>
 <h1 id="word-amp-phrase"><a href="#word-amp-phrase" class="headerlink" title="word &amp; phrase"></a>word &amp; phrase</h1><ul>
 <li>include       确实是包含的意思，但是我觉得翻译（根据语境去翻译）成使用是不是更舒服些</li>
@@ -427,19 +428,19 @@
         
 <nav id="article-nav">
     
-        <a href="/sc-f-e-02/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/Spring-Boot-SI/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    【参照官方英文文档学Spring Cloud】第二篇 Spring Cloud Config | 配置中心 - Config
+                    Spring Boot | 使用Spring Initializr快速创建
                 
             </div>
         </a>
     
     
-        <a href="/sc-f-e-00/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/sc-f-e-02/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">【参照官方英文文档学Spring Cloud】目录篇 - 我是「煮酒泛舟」</div>
+            <div class="article-nav-title">【参照官方英文文档学Spring Cloud】第二篇 Spring Cloud Config | 配置中心 - Config</div>
         </a>
     
 </nav>
@@ -485,25 +486,6 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/sc-f-e-02/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/参照官方英文文档学Spring-Cloud/">参照官方英文文档学Spring Cloud</a></p>
-                            <p class="item-title"><a href="/sc-f-e-02/" class="title">【参照官方英文文档学Spring Cloud】第二篇 Spring Cloud Config | 配置中心 - Config</a></p>
-                            <p class="item-date"><time datetime="2018-09-29T10:41:43.000Z" itemprop="datePublished">2018-09-29</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
                             <a href="/sc-f-e-01/" class="thumbnail">
     
     
@@ -516,6 +498,25 @@
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/参照官方英文文档学Spring-Cloud/">参照官方英文文档学Spring Cloud</a></p>
                             <p class="item-title"><a href="/sc-f-e-01/" class="title">【参照官方英文文档学Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka</a></p>
+                            <p class="item-date"><time datetime="2018-09-29T10:41:43.000Z" itemprop="datePublished">2018-09-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/sc-f-e-02/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/参照官方英文文档学Spring-Cloud/">参照官方英文文档学Spring Cloud</a></p>
+                            <p class="item-title"><a href="/sc-f-e-02/" class="title">【参照官方英文文档学Spring Cloud】第二篇 Spring Cloud Config | 配置中心 - Config</a></p>
                             <p class="item-date"><time datetime="2018-09-29T10:41:43.000Z" itemprop="datePublished">2018-09-29</time></p>
                         </div>
                     </li>
