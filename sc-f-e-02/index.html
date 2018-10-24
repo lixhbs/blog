@@ -394,6 +394,10 @@
 
     
     
+        <section id="comments">
+	<div id="commentContainer"></div>
+</section>
+    
 
 
 
@@ -552,12 +556,28 @@
     <div class="outer">
         <div id="footer-info" class="inner">
             &copy; 2018 煮酒泛舟<br>
-            <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>.<a href="http://www.miitbeian.gov.cn/" target="_blank">鄂ICP备15019901号-3</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            <a href="http://www.miitbeian.gov.cn/" target="_blank">鄂ICP备15019901号</a>. <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
         </div>
     </div>
 </footer>
 
         
+    
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+		var gitment = new Gitment({
+			owner: 'lixianghb@gmail.com',
+			repo: 'https://github.com/lixhbs/blog.git',
+			oauth: {
+				client_id: 'd0cee0b912d3f3018150',
+				client_secret: '579477a233a3337eadc58e24a8a010e7b26b913a',
+			},
+		})
+		gitment.render('commentContainer')
+	</script>
+	
+
 
 
     
