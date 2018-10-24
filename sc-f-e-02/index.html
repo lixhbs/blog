@@ -5,19 +5,19 @@
     
     <title>【Spring Cloud】第二篇 Circuit Breaker | 断路器 - Hystrix | 煮酒泛舟的技术栈</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Circuit Breaker，可以理解为服务停掉后的处理机制，我目前的项目服务如果停掉了，按基本上调用这个服务的功能都会跪。">
+    <meta name="description" content="服务意外跪掉后的处理方式，不至于所有的功能失效。">
 <meta name="keywords" content="Spring Cloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Spring Cloud】第二篇 Circuit Breaker | 断路器 - Hystrix">
 <meta property="og:url" content="https://lixhbs.gitee.io/blog/sc-f-e-02/index.html">
 <meta property="og:site_name" content="煮酒泛舟的技术栈">
-<meta property="og:description" content="Circuit Breaker，可以理解为服务停掉后的处理机制，我目前的项目服务如果停掉了，按基本上调用这个服务的功能都会跪。">
+<meta property="og:description" content="服务意外跪掉后的处理方式，不至于所有的功能失效。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/20181023173931.png">
-<meta property="og:updated_time" content="2018-10-24T02:28:56.883Z">
+<meta property="og:updated_time" content="2018-10-24T03:12:09.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Spring Cloud】第二篇 Circuit Breaker | 断路器 - Hystrix">
-<meta name="twitter:description" content="Circuit Breaker，可以理解为服务停掉后的处理机制，我目前的项目服务如果停掉了，按基本上调用这个服务的功能都会跪。">
+<meta name="twitter:description" content="服务意外跪掉后的处理方式，不至于所有的功能失效。">
 <meta name="twitter:image" content="http://paz1myrij.bkt.clouddn.com/20181023173931.png">
     
 
@@ -241,7 +241,7 @@
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
         <a href="/sc-f-e-02/">
-            <time datetime="2018-10-24T02:28:56.883Z" itemprop="datePublished">2018-10-24</time>
+            <time datetime="2018-10-24T03:12:09.189Z" itemprop="datePublished">2018-10-24</time>
         </a>
     </div>
 
@@ -266,7 +266,9 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>Circuit Breaker，可以理解为服务停掉后的处理机制，我目前的项目服务如果停掉了，按基本上调用这个服务的功能都会跪。<br><a id="more"></a><br>官方网站的这个图很形象,当服务跪掉后有一个fallback返回。<br><img src="http://paz1myrij.bkt.clouddn.com/HystrixFallback.png" alt=""></p>
+            <p>服务意外跪掉后的处理方式，不至于所有的功能失效。</p>
+<a id="more"></a>  
+<p>官方网站的这个图很形象,当服务跪掉后有一个fallback返回。<br><img src="http://paz1myrij.bkt.clouddn.com/HystrixFallback.png" alt=""></p>
 <p>本教程在<a href="https://github.com/lixhbs/SpringCloudEnglish/tree/master/sc-f-e-01" target="_blank" rel="noopener">【参照官方英文文档学Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka</a>的基础上添加代码。</p>
 <h1 id="word-amp-phrase"><a href="#word-amp-phrase" class="headerlink" title="word &amp; phrase"></a>word &amp; phrase</h1><ul>
 <li>Circuit Breaker 中断回路</li>
@@ -417,7 +419,7 @@
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a></p>
                             <p class="item-title"><a href="/sc-f-e-02/" class="title">【Spring Cloud】第二篇 Circuit Breaker | 断路器 - Hystrix</a></p>
-                            <p class="item-date"><time datetime="2018-10-24T02:28:56.883Z" itemprop="datePublished">2018-10-24</time></p>
+                            <p class="item-date"><time datetime="2018-10-24T03:12:09.189Z" itemprop="datePublished">2018-10-24</time></p>
                         </div>
                     </li>
                 
