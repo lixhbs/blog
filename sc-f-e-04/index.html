@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>【Spring cloud】第四篇 Router and Filter | 路由和过滤器 - Zuul | 煮酒泛舟的技术栈</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="路由是微服务架构不可或缺的一部分。例如，/可以映射到您的Web应用程序，/api/users映射到用户服务，/api/shop映射到商店服务。 Zuul是Netflix的基于JVM的路由器和服务器端负载均衡器  Routing is an integral part of a microservice architecture. For example, / may be mapped to yo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Spring cloud】第四篇 Router and Filter | 路由和过滤器 - Zuul">
+<meta property="og:url" content="https://lixhbs.gitee.io/blog/sc-f-e-04/index.html">
+<meta property="og:site_name" content="煮酒泛舟的技术栈">
+<meta property="og:description" content="路由是微服务架构不可或缺的一部分。例如，/可以映射到您的Web应用程序，/api/users映射到用户服务，/api/shop映射到商店服务。 Zuul是Netflix的基于JVM的路由器和服务器端负载均衡器  Routing is an integral part of a microservice architecture. For example, / may be mapped to yo">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/GvuCOnQi_400x400.jpg">
+<meta property="og:updated_time" content="2018-10-31T09:09:06.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Spring cloud】第四篇 Router and Filter | 路由和过滤器 - Zuul">
+<meta name="twitter:description" content="路由是微服务架构不可或缺的一部分。例如，/可以映射到您的Web应用程序，/api/users映射到用户服务，/api/shop映射到商店服务。 Zuul是Netflix的基于JVM的路由器和服务器端负载均衡器  Routing is an integral part of a microservice architecture. For example, / may be mapped to yo">
+<meta name="twitter:image" content="http://paz1myrij.bkt.clouddn.com/GvuCOnQi_400x400.jpg">
+    
+
+    
+        <link rel="alternate" href="atom.xml" title="煮酒泛舟的技术栈" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        
+<header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">煮酒泛舟的技术栈</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/."><i class="fab fa-Home"></i>Home</a>
+                
+                    <a class="main-nav-link" href="/archives"><i class="fab fa-Archives"></i>Archives</a>
+                
+                    <a class="main-nav-link" href="/categories"><i class="fab fa-Categories"></i>Categories</a>
+                
+                    <a class="main-nav-link" href="/tags"><i class="fab fa-Tags"></i>Tags</a>
+                
+                    <a class="main-nav-link" href="/about"><i class="fab fa-About"></i>About</a>
+                
+                    <a class="main-nav-link" href="/atom.xml"><i class="fab fa-RSS"></i>RSS</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                    <td><a class="main-nav-link" href="/atom.xml">RSS</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">煮酒泛舟</h2>
+            <h3 id="title">Web, Java... Developer</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>HuBei, China</span>
+            <a id="follow" target="_blank" href="https://github.com/Lixhbs">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                6
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                2
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/Lixhbs" target="_blank" title="github" class=tooltip>
+                            
+                                <i class="fab fa-github"></i>
+                            
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://gitee.com/Lixhbs/" target="_blank" title="gg" class=tooltip>
+                            
+                                <i class="fab fa-gg"></i>
+                            
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="mailto:lixhbs@163.com" target="_blank" title="envelope" class=tooltip>
+                            
+                                <i class="fas fa-envelope"></i>
+                            
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            
+                                <i class="fas fa-rss"></i>
+                            
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-sc-f-e-04" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            【Spring cloud】第四篇 Router and Filter | 路由和过滤器 - Zuul
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/sc-f-e-04/">
+            <time datetime="2018-10-29T07:00:01.000Z" itemprop="datePublished">2018-10-29</time>
+        </a>
+    </div>
+
+
+                        
+
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>路由是微服务架构不可或缺的一部分。例如，<code>/</code>可以映射到您的Web应用程序，<code>/api/users</code>映射到用户服务，<code>/api/shop</code>映射到商店服务。 <code>Zuul</code>是<code>Netflix</code>的基于<code>JVM</code>的路由器和服务器端负载均衡器</p>
+<blockquote>
+<p>Routing is an integral part of a microservice architecture. For example, / may be mapped to your web application, /api/users is mapped to the user service and /api/shop is mapped to the shop service. Zuul is a JVM-based router and server-side load balancer from Netflix.</p>
+</blockquote>
+<a id="more"></a>
+<p>本教程在<a href="https://github.com/lixhbs/SpringCloudEnglish/tree/master/sc-f-e-03" target="_blank" rel="noopener">【Spring Cloud】第三篇 Client Side Load Balancer | 负载均衡 - Ribbon</a>的基础上添加代码。</p>
+<h3 id="How-to-Include-Zuul-项目中如何包含-Zuul"><a href="#How-to-Include-Zuul-项目中如何包含-Zuul" class="headerlink" title="How to Include Zuul | 项目中如何包含 Zuul"></a>How to Include Zuul | 项目中如何包含 <code>Zuul</code></h3><blockquote>
+<p>To include Zuul in your project, use the starter with a group ID of <code>org.springframework.cloud</code> and an artifact ID of <code>spring-cloud-starter-netflix-zuul</code>. See the <a href="http://projects.spring.io/spring-cloud/" target="_blank" rel="noopener">Spring Cloud Project page</a> for details on setting up your build system with the current Spring Cloud Release Train.</p>
+</blockquote>
+<p>添加<code>group ID</code>到 <code>pom.xml</code>，注意自己的版本。</p>
+<h4 id="Zuul有几种配置的方式"><a href="#Zuul有几种配置的方式" class="headerlink" title="Zuul有几种配置的方式"></a>Zuul有几种配置的方式</h4><p>跳过自动添加服务，将<code>zuul.ignored-services</code> 设置服务<code>id</code>列表的模式，如<code>zuul.ignored-services = server-consume</code>或<code>zuul.ignored-services = *</code> 将忽略掉指定或所有的服务，但是如果在路由列表中添加了指定的路由，将不会被忽略，如下所示,除<code>users</code>外将忽略所有服务。 </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span><br><span class="line"><span class="attr">  ignoredServices:</span> <span class="string">'*'</span></span><br><span class="line"><span class="attr">  routes:</span></span><br><span class="line"><span class="attr">    users:</span> <span class="string">/myusers/**</span></span><br></pre></td></tr></table></figure>
+<p>要增加或者修改路由器规则，可以添加如下配置，浏览器访问<code>/myusers</code>会转发到<code>users</code>服务，如：<code>/myusers/101</code>转发到<code>/101</code>）。<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span><br><span class="line"><span class="attr">  routes:</span></span><br><span class="line"><span class="attr">    users:</span> <span class="string">/myusers/**</span></span><br></pre></td></tr></table></figure></p>
+<p>要对路由器进行更精细的操作，可以指定独立的路径和ServerID（Eureka 服务发现），如下配置：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span><br><span class="line"><span class="attr">  routes:</span></span><br><span class="line"><span class="attr">    users:</span></span><br><span class="line"><span class="attr">      path:</span> <span class="string">/myusers/**</span></span><br><span class="line"><span class="attr">      serviceId:</span> <span class="string">users_service</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以直接配置http路径的物理位置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span><br><span class="line"><span class="attr"> routes:</span></span><br><span class="line"><span class="attr">   users:</span></span><br><span class="line"><span class="attr">     path:</span> <span class="string">/myusers/**</span></span><br><span class="line"><span class="attr">     url:</span> <span class="attr">http://example.com/users_service</span></span><br></pre></td></tr></table></figure>
+<h3 id="实际操作"><a href="#实际操作" class="headerlink" title="实际操作"></a>实际操作</h3><p>创建<code>server-zuul</code>工程<br><img src="http://paz1myrij.bkt.clouddn.com/20181029161740.png" alt=""></p>
+<p>完整<code>pom.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.cyinfotech<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>server-zuul<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>server-zuul<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.cyinfotech<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sc-f-e-04<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-zuul<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--Eureka-Client--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>修改父工程<code>pom.xml</code>，在<code>modules</code>添加<code>server-ribbon</code> </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>server-zuul<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>修改<code>ServerZuulApplication</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package com.cyinfotech.serverzuul;</span><br><span class="line">   </span><br><span class="line">   import org.springframework.boot.SpringApplication;</span><br><span class="line">   import org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line">   import org.springframework.cloud.client.discovery.EnableDiscoveryClient;</span><br><span class="line">   import org.springframework.cloud.netflix.zuul.EnableZuulProxy;</span><br><span class="line">   </span><br><span class="line">   @SpringBootApplication</span><br><span class="line">   @EnableDiscoveryClient</span><br><span class="line">   @EnableZuulProxy</span><br><span class="line">   public class ServerZuulApplication &#123;</span><br><span class="line">   </span><br><span class="line">       public static void main(String[] args) &#123;</span><br><span class="line">           SpringApplication.run(ServerZuulApplication.class, args);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>application.yml</code>中添加路由规则</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">server-zuul</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8084</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    serviceUrl:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://localhost:8761/eureka/</span></span><br><span class="line"><span class="attr">zuul:</span></span><br><span class="line"><span class="attr">  routes:</span></span><br><span class="line"><span class="attr">    aa:</span></span><br><span class="line"><span class="attr">      path:</span> <span class="string">/hy/**</span></span><br><span class="line"><span class="attr">      serviceId:</span> <span class="string">server-hystrix</span></span><br><span class="line"><span class="attr">    bb:</span></span><br><span class="line"><span class="attr">      path:</span> <span class="string">/ec/**</span></span><br><span class="line"><span class="attr">      serviceId:</span> <span class="string">eureka-client</span></span><br></pre></td></tr></table></figure>
+<p>分别在<code>server-hystrix</code>和<code>eureka-client</code>中添加<code>hi</code>服务路径</p>
+<p><strong>ServerHystrixApplication</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">package com.cyinfotech.serverhystrix;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.beans.factory.annotation.Value;</span><br><span class="line">import org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line">import org.springframework.boot.builder.SpringApplicationBuilder;</span><br><span class="line">import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;</span><br><span class="line">import org.springframework.cloud.client.discovery.EnableDiscoveryClient;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line">import org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">@SpringBootApplication</span><br><span class="line">@EnableCircuitBreaker</span><br><span class="line">@EnableDiscoveryClient</span><br><span class="line">@RestController</span><br><span class="line">public class ServerHystrixApplication &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new SpringApplicationBuilder(ServerHystrixApplication.class).web(true).run(args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    StoreIntegration storeIntegration;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;$&#123;server.port&#125;&quot;)</span><br><span class="line">    String port;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;/&quot;)</span><br><span class="line">    public Object getHi (@RequestParam String name)&#123;</span><br><span class="line"></span><br><span class="line">        return &quot;HI - &quot; + name + &quot;， port:&quot; + port + &quot;, By server-hystrix.&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;/hi&quot;)</span><br><span class="line">    public Object hi ()&#123;</span><br><span class="line"></span><br><span class="line">        return &quot;HI, By server-hystrix.&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>EurekaClientApplication</strong></p>
+<pre><code>package com.cyinfotech.eurekaclient;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@EnableDiscoveryClient
+@RestController
+public class EurekaClientApplication {
+
+    @RequestMapping(&quot;/hi&quot;)
+    public String home() {
+        return &quot;Hello world, by eureka-client.&quot;;
+    }
+
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(EurekaClientApplication.class).web(true).run(args);
+    }
+}
+</code></pre><p>访问路由路径:<code>http://localhost:8084/ec/hi</code></p>
+<blockquote>
+<p>Hello world, by eureka-client.</p>
+</blockquote>
+<p>访问路由路径:<code>http://localhost:8084/hy/hi</code></p>
+<blockquote>
+<p>HI, By server-hystrix.</p>
+</blockquote>
+<p>本篇教程就到这，至于更深的教程我会加紧学习然后写出来。</p>
+<hr>
+<p>欢迎关注我的公众号，跟我留言。<br><img src="http://paz1myrij.bkt.clouddn.com/qrcode_for_gh_22df58e4959f_258.jpg" alt=""></p>
+<p>博客地址：<a href="https://blog.aprcode.com/sc-f-e-04/" target="_blank" rel="noopener">https://blog.aprcode.com/sc-f-e-04/</a><br>教程源码Github地址：<a href="https://github.com/lixhbs/SpringCloudEnglish/tree/master/sc-f-e-04" target="_blank" rel="noopener">sc-f-e-04</a><br>教程源码Gitee地址：<a href="https://gitee.com/Lixhbs/SpringCloudEnglish/tree/master/sc-f-e-04" target="_blank" rel="noopener">sc-f-e-04</a></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+</div>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/sc-f-e-03/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">【Spring Cloud】第三篇 Client Side Load Balancer | 负载均衡 - Ribbon</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+
+
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/sc-f-e-04/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://paz1myrij.bkt.clouddn.com/GvuCOnQi_400x400.jpg)" alt="【Spring cloud】第四篇 Router and Filter | 路由和过滤器 - Zuul" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/sc-f-e-04/" class="title">【Spring cloud】第四篇 Router and Filter | 路由和过滤器 - Zuul</a></p>
+                            <p class="item-date"><time datetime="2018-10-29T07:00:01.000Z" itemprop="datePublished">2018-10-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/sc-f-e-03/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://paz1myrij.bkt.clouddn.com/20181023173931.png)" alt="【Spring Cloud】第三篇 Client Side Load Balancer | 负载均衡 - Ribbon" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Spring-Cloud/Ribbon/">Ribbon</a></p>
+                            <p class="item-title"><a href="/sc-f-e-03/" class="title">【Spring Cloud】第三篇 Client Side Load Balancer | 负载均衡 - Ribbon</a></p>
+                            <p class="item-date"><time datetime="2018-10-28T03:01:13.588Z" itemprop="datePublished">2018-10-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/sc-f-e-02/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://paz1myrij.bkt.clouddn.com/20181023173931.png)" alt="【Spring Cloud】第二篇 Circuit Breaker | 断路器 - Hystrix" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a></p>
+                            <p class="item-title"><a href="/sc-f-e-02/" class="title">【Spring Cloud】第二篇 Circuit Breaker | 断路器 - Hystrix</a></p>
+                            <p class="item-date"><time datetime="2018-10-28T02:42:57.770Z" itemprop="datePublished">2018-10-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/sc-f-e-01/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://paz1myrij.bkt.clouddn.com/GvuCOnQi_400x400.jpg)" alt="【Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a></p>
+                            <p class="item-title"><a href="/sc-f-e-01/" class="title">【Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka</a></p>
+                            <p class="item-date"><time datetime="2018-10-22T10:41:43.000Z" itemprop="datePublished">2018-10-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/sc-f-e-00/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://paz1myrij.bkt.clouddn.com/GvuCOnQi_400x400.jpg)" alt="【Spring Cloud】目录篇 - 我是「煮酒泛舟」" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a></p>
+                            <p class="item-title"><a href="/sc-f-e-00/" class="title">【Spring Cloud】目录篇 - 我是「煮酒泛舟」</a></p>
+                            <p class="item-date"><time datetime="2018-10-21T13:32:27.000Z" itemprop="datePublished">2018-10-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Boot/">Spring Boot</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Cloud/">Spring Cloud</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring-Cloud/Ribbon/">Ribbon</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Cloud/">Spring Cloud</a><span class="tag-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/Spring-Cloud/" style="font-size: 20px;">Spring Cloud</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 煮酒泛舟<br>
+            <a href="http://www.miitbeian.gov.cn/" target="_blank">鄂ICP备15019901号</a>. <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
