@@ -251,38 +251,10 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <h3 id="给定一个-32-位有符号整数，将整数中的数字进行反转。"><a href="#给定一个-32-位有符号整数，将整数中的数字进行反转。" class="headerlink" title="给定一个 32 位有符号整数，将整数中的数字进行反转。"></a>给定一个 32 位有符号整数，将整数中的数字进行反转。</h3><p><strong>示例 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 123</span><br><span class="line">输出: 321</span><br></pre></td></tr></table></figure></p>
-<p><strong>示例 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: -123</span><br><span class="line">输出: -321</span><br></pre></td></tr></table></figure></p>
-<p><strong>示例 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 120</span><br><span class="line">输出: 21</span><br></pre></td></tr></table></figure></p>
-<p>注意:</p>
-<p>假设我们的环境只能存储32位有符号整数，其数值范围是 [−2<code>31</code>,  2<code>31</code>−1]。根据这个假设，如果反转后的整数溢出，则返回 0。   </p>
-<h3 id="方法：弹出和推入数字-amp-溢出前进行检查"><a href="#方法：弹出和推入数字-amp-溢出前进行检查" class="headerlink" title="方法：弹出和推入数字 &amp; 溢出前进行检查"></a>方法：弹出和推入数字 &amp; 溢出前进行检查</h3><p><strong>思路</strong></p>
-<p>我们可以一次构建反转整数的一位数字。在这样做的时候，我们可以预先检查向原整数附加另一位数字是否会导致溢出。   </p>
-<p><strong>算法</strong></p>
-<p>反转整数的方法可以与反转字符串进行类比。   </p>
-<p>我们想重复“弹出” xx 的最后一位数字，并将它“推入”到 rev 的后面。最后，rev 将与 x相反。   </p>
-<p>要在没有辅助堆栈/数组的帮助下 “弹出” 和 “推入” 数字，我们可以使用数学方法。   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//pop operation:</span><br><span class="line">pop = x % 10;</span><br><span class="line">x /= 10;</span><br><span class="line"></span><br><span class="line">//push operation:</span><br><span class="line">temp = rev * 10 + pop;</span><br><span class="line">rev = temp;</span><br></pre></td></tr></table></figure>
-<p>但是，这种方法很危险，因为当 <code>temp=rev⋅10+pop</code> 时会导致溢出。   </p>
-<p>幸运的是，事先检查这个语句是否会导致溢出很容易。   </p>
-<p><img src="http://paz1myrij.bkt.clouddn.com/20181105091407.png" alt=""></p>
-<p>将输入值取余与rev*10相加翻转数，判断翻转的📚是否大于int的最大值和小于最小值.<br>Integer.MIN_VALUE = -2147483648.<br>Integer.MAX_VALUE = 2147483647.<br>所以 当x &lt; (Integer.MIN_VALUE / 10 = -8) 时就会溢出.<br>所以 当x &gt; (Integer.MAX_VALUE / 10 = 7) 时就会溢出.   </p>
-<pre><code> class Solution {
-    public int reverse(int x) {
-        int rev = 0;
-        while (x != 0) {
-            int pop = x % 10;
-            x /= 10;
-            if (rev &gt; Integer.MAX_VALUE/10 || (rev == Integer.MAX_VALUE / 10 &amp;&amp; pop &gt; 7)) return 0;
-            if (rev &lt; Integer.MIN_VALUE/10 || (rev == Integer.MIN_VALUE / 10 &amp;&amp; pop &lt; -8)) return 0;
-            rev = rev * 10 + pop;
-        }
-        return rev;
-    }
-}
-</code></pre><p><img src="http://paz1myrij.bkt.clouddn.com/20181105091537.png" alt=""></p>
-
+            <p><h3 id="给定一个-32-位有符号整数，将整数中的数字进行反转。"><a href="#给定一个-32-位有符号整数，将整数中的数字进行反转。" class="headerlink" title="给定一个 32 位有符号整数，将整数中的数字进行反转。"></a>给定一个 32 位有符号整数，将整数中的数字进行反转。</h3></p>
+            <p class="article-more-link">
+                <a href="/leetcode-002/#more">Read More</a>
+            </p>
         
         </div>
         <footer class="article-footer">
