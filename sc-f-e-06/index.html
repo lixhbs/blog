@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>「leetcode」反转整数 | 煮酒泛舟的技术栈</title>
+    <title>【Spring cloud】第六篇 Declarative REST Client | 声明性客户端 - Feign | 煮酒泛舟的技术栈</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="给定一个 32 位有符号整数，将整数中的数字进行反转。">
+    <meta name="description" content="Feign是一个声明性web服务客户端。它使编写web服务更简单，使用Feign时需创建一个接口并注解，它具有可拔插的注解支持，包括Feign注解和JAX-RS注解。Feign还支持可插拔编码器和解码器。Spring Cloud增加了对Spring MVC注释的支持，并使用了Spring Web中默认使用的相同HttpMessageConverters，在使用Feign时，Spring Cloud">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「leetcode」反转整数">
-<meta property="og:url" content="https://lixhbs.gitee.io/blog/leetcode-002/index.html">
+<meta property="og:title" content="【Spring cloud】第六篇 Declarative REST Client | 声明性客户端 - Feign">
+<meta property="og:url" content="https://lixhbs.gitee.io/blog/sc-f-e-06/index.html">
 <meta property="og:site_name" content="煮酒泛舟的技术栈">
-<meta property="og:description" content="给定一个 32 位有符号整数，将整数中的数字进行反转。">
+<meta property="og:description" content="Feign是一个声明性web服务客户端。它使编写web服务更简单，使用Feign时需创建一个接口并注解，它具有可拔插的注解支持，包括Feign注解和JAX-RS注解。Feign还支持可插拔编码器和解码器。Spring Cloud增加了对Spring MVC注释的支持，并使用了Spring Web中默认使用的相同HttpMessageConverters，在使用Feign时，Spring Cloud">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/LeetCode_Playground.png">
-<meta property="og:updated_time" content="2018-11-05T01:34:44.684Z">
+<meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/GvuCOnQi_400x400.jpg">
+<meta property="og:updated_time" content="2018-11-06T02:48:11.899Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="「leetcode」反转整数">
-<meta name="twitter:description" content="给定一个 32 位有符号整数，将整数中的数字进行反转。">
-<meta name="twitter:image" content="http://paz1myrij.bkt.clouddn.com/LeetCode_Playground.png">
+<meta name="twitter:title" content="【Spring cloud】第六篇 Declarative REST Client | 声明性客户端 - Feign">
+<meta name="twitter:description" content="Feign是一个声明性web服务客户端。它使编写web服务更简单，使用Feign时需创建一个接口并注解，它具有可拔插的注解支持，包括Feign注解和JAX-RS注解。Feign还支持可插拔编码器和解码器。Spring Cloud增加了对Spring MVC注释的支持，并使用了Spring Web中默认使用的相同HttpMessageConverters，在使用Feign时，Spring Cloud">
+<meta name="twitter:image" content="http://paz1myrij.bkt.clouddn.com/GvuCOnQi_400x400.jpg">
     
 
     
@@ -223,7 +223,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-leetcode-002" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-sc-f-e-06" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -231,7 +231,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            「leetcode」反转整数
+            【Spring cloud】第六篇 Declarative REST Client | 声明性客户端 - Feign
         </h1>
     
 
@@ -240,8 +240,8 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/leetcode-002/">
-            <time datetime="2018-11-05T11:00:00.000Z" itemprop="datePublished">2018-11-05</time>
+        <a href="/sc-f-e-06/">
+            <time datetime="2018-11-06T04:00:00.000Z" itemprop="datePublished">2018-11-06</time>
         </a>
     </div>
 
@@ -257,37 +257,57 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h3 id="给定一个-32-位有符号整数，将整数中的数字进行反转。"><a href="#给定一个-32-位有符号整数，将整数中的数字进行反转。" class="headerlink" title="给定一个 32 位有符号整数，将整数中的数字进行反转。"></a>给定一个 32 位有符号整数，将整数中的数字进行反转。</h3><a id="more"></a>
-<p><strong>示例 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 123</span><br><span class="line">输出: 321</span><br></pre></td></tr></table></figure></p>
-<p><strong>示例 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: -123</span><br><span class="line">输出: -321</span><br></pre></td></tr></table></figure></p>
-<p><strong>示例 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 120</span><br><span class="line">输出: 21</span><br></pre></td></tr></table></figure></p>
-<p>注意:</p>
-<p>假设我们的环境只能存储32位有符号整数，其数值范围是 [−2<code>31</code>,  2<code>31</code>−1]。根据这个假设，如果反转后的整数溢出，则返回 0。   </p>
-<h3 id="方法：弹出和推入数字-amp-溢出前进行检查"><a href="#方法：弹出和推入数字-amp-溢出前进行检查" class="headerlink" title="方法：弹出和推入数字 &amp; 溢出前进行检查"></a>方法：弹出和推入数字 &amp; 溢出前进行检查</h3><p><strong>思路</strong></p>
-<p>我们可以一次构建反转整数的一位数字。在这样做的时候，我们可以预先检查向原整数附加另一位数字是否会导致溢出。   </p>
-<p><strong>算法</strong></p>
-<p>反转整数的方法可以与反转字符串进行类比。   </p>
-<p>我们想重复“弹出” xx 的最后一位数字，并将它“推入”到 rev 的后面。最后，rev 将与 x相反。   </p>
-<p>要在没有辅助堆栈/数组的帮助下 “弹出” 和 “推入” 数字，我们可以使用数学方法。   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//pop operation:</span><br><span class="line">pop = x % 10;</span><br><span class="line">x /= 10;</span><br><span class="line"></span><br><span class="line">//push operation:</span><br><span class="line">temp = rev * 10 + pop;</span><br><span class="line">rev = temp;</span><br></pre></td></tr></table></figure>
-<p>但是，这种方法很危险，因为当 <code>temp=rev⋅10+pop</code> 时会导致溢出。   </p>
-<p>幸运的是，事先检查这个语句是否会导致溢出很容易。   </p>
-<p><img src="http://paz1myrij.bkt.clouddn.com/20181105091407.png" alt=""></p>
-<p>将输入值取余与rev*10相加翻转数，判断翻转的📚是否大于int的最大值和小于最小值.<br>Integer.MIN_VALUE = -2147483648.<br>Integer.MAX_VALUE = 2147483647.<br>所以 当x &lt; (Integer.MIN_VALUE / 10 = -8) 时就会溢出.<br>所以 当x &gt; (Integer.MAX_VALUE / 10 = 7) 时就会溢出.   </p>
-<pre><code> class Solution {
-    public int reverse(int x) {
-        int rev = 0;
-        while (x != 0) {
-            int pop = x % 10;
-            x /= 10;
-            if (rev &gt; Integer.MAX_VALUE/10 || (rev == Integer.MAX_VALUE / 10 &amp;&amp; pop &gt; 7)) return 0;
-            if (rev &lt; Integer.MIN_VALUE/10 || (rev == Integer.MIN_VALUE / 10 &amp;&amp; pop &lt; -8)) return 0;
-            rev = rev * 10 + pop;
-        }
-        return rev;
-    }
+            <p><code>Feign</code>是一个声明性<code>web</code>服务客户端。它使编写<code>web</code>服务更简单，使用<code>Feign</code>时需创建一个接口并注解，它具有可拔插的注解支持，包括Feign注解和JAX-RS注解。Feign还支持可插拔编码器和解码器。<code>Spring Cloud</code>增加了对<code>Spring MVC</code>注释的支持，并使用了<code>Spring Web中</code>默认使用的相同<code>HttpMessageConverters</code>，在使用<code>Feign</code>时，<code>Spring Cloud</code>集成了<code>Ribbon</code>和<code>Eureka</code>以提供<code>负载均衡</code>的<code>http客户端</code>。</p>
+<a id="more"></a>
+<blockquote>
+<p>Feign is a declarative web service client. It makes writing web service clients easier. To use Feign create an interface and annotate it. It has pluggable annotation support including Feign annotations and JAX-RS annotations. Feign also supports pluggable encoders and decoders. Spring Cloud adds support for Spring MVC annotations and for using the same HttpMessageConverters used by default in Spring Web. Spring Cloud integrates Ribbon and Eureka to provide a load balanced http client when using Feign.</p>
+</blockquote>
+<p>本教程在<a href="https://github.com/lixhbs/SpringCloudEnglish/tree/master/sc-f-e-05" target="_blank" rel="noopener">【Spring cloud】第五篇 Custom Zuul Filter | 自定义过滤器</a>的基础上添加代码。</p>
+<h3 id="How-to-Include-Feign-如何包含-Feign"><a href="#How-to-Include-Feign-如何包含-Feign" class="headerlink" title="How to Include Feign | 如何包含 Feign"></a>How to Include Feign | 如何包含 <code>Feign</code></h3><blockquote>
+<p>To include Feign in your project use the starter with group <code>org.springframework.cloud</code> and artifact id <code>spring-cloud-starter-openfeign</code>. See the Spring Cloud Project page for details on setting up your build system with the current Spring Cloud Release Train.    </p>
+</blockquote>
+<p>在项目中使用<code>Feign</code>，需要配置 <code>pom.xml</code>, 根据你当前的<code>Spring Cloud</code>版本在<a href="http://projects.spring.io/spring-cloud/" target="_blank" rel="noopener">Spring Cloud Project page</a>中可以查看详细说明。    </p>
+<p>创建<code>server-feign</code>工程<br><img src="http://paz1myrij.bkt.clouddn.com/20181106102243.png" alt=""></p>
+<p>完整<code>pom.xml</code>    </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.cyinfotech<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>server-feign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>server-feign<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.cyinfotech<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sc-f-e-06<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--Eureka-Client--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br><span class="line"></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">`ServerFeignApplication`添加注解</span><br></pre></td></tr></table></figure>
+<p>package com.cyinfotech.serverfeign;</p>
+<p>import org.springframework.boot.SpringApplication;<br>import org.springframework.boot.autoconfigure.SpringBootApplication;<br>import org.springframework.cloud.netflix.eureka.EnableEurekaClient;<br>import org.springframework.cloud.openfeign.EnableFeignClients;</p>
+<p>@SpringBootApplication<br>@EnableFeignClients<br>@EnableEurekaClient<br>public class ServerFeignApplication {</p>
+<pre><code>public static void main(String[] args) {
+    SpringApplication.run(ServerFeignApplication.class, args);
 }
-</code></pre><p><img src="http://paz1myrij.bkt.clouddn.com/20181105091537.png" alt=""></p>
+</code></pre><p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">添加如下配置文件`application.yml`    </span><br><span class="line"></span><br><span class="line">```yaml</span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: server-feign</span><br><span class="line">server:</span><br><span class="line">  port: 8085</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    serviceUrl:</span><br><span class="line">      defaultZone: http://localhost:8761/eureka/</span><br></pre></td></tr></table></figure>
+<p>创建<code>Feign</code>服务接口<code>CyinfoService</code>，定义调用服务。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cyinfotech.serverfeign;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.openfeign.FeignClient;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"></span><br><span class="line"><span class="meta">@FeignClient</span>(<span class="string">"eureka-client"</span>)</span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CyinfoService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(method = RequestMethod.GET, value = <span class="string">"/hi"</span>)</span><br><span class="line">    <span class="function">String <span class="title">hi</span> <span class="params">(@RequestParam(value = <span class="string">"name"</span>)</span> String name)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">创建`Controller`</span><br></pre></td></tr></table></figure></p>
+<p>package com.cyinfotech.serverfeign;</p>
+<p>import org.springframework.beans.factory.annotation.Autowired;<br>import org.springframework.web.bind.annotation.RequestMapping;<br>import org.springframework.web.bind.annotation.RequestParam;<br>import org.springframework.web.bind.annotation.RestController;</p>
+<p>/**</p>
+<ul>
+<li>@author 煮酒泛舟.</li>
+<li>@title controller</li>
+<li>@program sc-f-e-06</li>
+<li>@description controller</li>
+<li><p>@createtime 2018-11-06 10:38<br>*/<br>@RestController<br>public class CyinfoController {</p>
+<p> @Autowired<br> CyinfoService cyinfoService;</p>
+<p> @RequestMapping(value = “/hi”)<br> public String hi (@RequestParam(value = “name”) String name) {</p>
+<pre><code>return cyinfoService.hi(name);
+</code></pre><p> }<br>}</p>
+</li>
+</ul>
+<p><code>`</code></p>
+<p>启动服务    </p>
+<ul>
+<li>eureka-server    </li>
+<li>eureka-client    </li>
+<li>server-feign    </li>
+</ul>
+<p>访问：<a href="http://localhost:8085/hi?name=cyinfo" target="_blank" rel="noopener">http://localhost:8085/hi?name=cyinfo</a></p>
+<blockquote>
+<p>Hello world, by eureka-client. name：cyinfo</p>
+</blockquote>
+<hr>
+<p>欢迎关注我的公众号，跟我留言。<br><img src="http://paz1myrij.bkt.clouddn.com/qrcode_for_gh_22df58e4959f_258.jpg" alt=""></p>
+<p>博客地址：<a href="https://blog.aprcode.com/sc-f-e-06/" target="_blank" rel="noopener">https://blog.aprcode.com/sc-f-e-06/</a><br>教程源码Github地址：<a href="https://github.com/lixhbs/SpringCloudEnglish/tree/master/sc-f-e-06" target="_blank" rel="noopener">sc-f-e-06</a><br>教程源码Gitee地址：<a href="https://gitee.com/Lixhbs/SpringCloudEnglish/tree/master/sc-f-e-06" target="_blank" rel="noopener">sc-f-e-06</a></p>
 
         
         </div>
@@ -360,19 +380,10 @@
         
 <nav id="article-nav">
     
-        <a href="/sc-f-e-06/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    【Spring cloud】第六篇 Declarative REST Client | 声明性客户端 - Feign
-                
-            </div>
-        </a>
     
-    
-        <a href="/leetcode-001/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/leetcode-002/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">「leetcode」两数之和</div>
+            <div class="article-nav-title">「leetcode」反转整数</div>
         </a>
     
 </nav>
