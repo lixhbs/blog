@@ -3,22 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>「Spring Boot」 推送Docker镜像到阿里云镜像服务 | 煮酒泛舟的技术栈</title>
+    <title>「Feign-Http」 Feign请求http接口 | 煮酒泛舟的技术栈</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="容器镜像服务（Container Registry）提供安全的应用镜像托管能力，精确的镜像安全扫描功能，稳定的镜像构建服务，便捷的镜像授权功能，方便用户进行镜像全生命周期管理。容器镜像服务简化了Registry的搭建运维工作，支持多地域的镜像托管，并联合容器服务等云产品，打造云上使用Docker的一体化体验。">
-<meta name="keywords" content="Docker">
+    <meta name="description" content="没有接触Spring Cloud Feign的时候调用其他公司接口都是用java.net.URL或者org.apache.commons.httpclient, 现在可以使用Feign，使用起来比较简单。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「Spring Boot」 推送Docker镜像到阿里云镜像服务">
-<meta property="og:url" content="https://lixhbs.gitee.io/blog/Spring-Boot-Docker-Aliyun/index.html">
+<meta property="og:title" content="「Feign-Http」 Feign请求http接口">
+<meta property="og:url" content="https://lixhbs.gitee.io/blog/Feign-Http-md/index.html">
 <meta property="og:site_name" content="煮酒泛舟的技术栈">
-<meta property="og:description" content="容器镜像服务（Container Registry）提供安全的应用镜像托管能力，精确的镜像安全扫描功能，稳定的镜像构建服务，便捷的镜像授权功能，方便用户进行镜像全生命周期管理。容器镜像服务简化了Registry的搭建运维工作，支持多地域的镜像托管，并联合容器服务等云产品，打造云上使用Docker的一体化体验。">
+<meta property="og:description" content="没有接触Spring Cloud Feign的时候调用其他公司接口都是用java.net.URL或者org.apache.commons.httpclient, 现在可以使用Feign，使用起来比较简单。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/1_9hGvYE5jegHm1r_97gH-jQ.png">
-<meta property="og:updated_time" content="2018-11-14T03:31:54.891Z">
+<meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/qrcode_for_gh_22df58e4959f_258.jpg">
+<meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/qrcode_for_gh_22df58e4959f_258.jpg">
+<meta property="og:updated_time" content="2018-12-16T12:40:31.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="「Spring Boot」 推送Docker镜像到阿里云镜像服务">
-<meta name="twitter:description" content="容器镜像服务（Container Registry）提供安全的应用镜像托管能力，精确的镜像安全扫描功能，稳定的镜像构建服务，便捷的镜像授权功能，方便用户进行镜像全生命周期管理。容器镜像服务简化了Registry的搭建运维工作，支持多地域的镜像托管，并联合容器服务等云产品，打造云上使用Docker的一体化体验。">
-<meta name="twitter:image" content="http://paz1myrij.bkt.clouddn.com/1_9hGvYE5jegHm1r_97gH-jQ.png">
+<meta name="twitter:title" content="「Feign-Http」 Feign请求http接口">
+<meta name="twitter:description" content="没有接触Spring Cloud Feign的时候调用其他公司接口都是用java.net.URL或者org.apache.commons.httpclient, 现在可以使用Feign，使用起来比较简单。">
+<meta name="twitter:image" content="http://paz1myrij.bkt.clouddn.com/qrcode_for_gh_22df58e4959f_258.jpg">
     
 
     
@@ -224,7 +224,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Spring-Boot-Docker-Aliyun" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Feign-Http-md" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -232,7 +232,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            「Spring Boot」 推送Docker镜像到阿里云镜像服务
+            「Feign-Http」 Feign请求http接口
         </h1>
     
 
@@ -241,25 +241,15 @@
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/Spring-Boot-Docker-Aliyun/">
-            <time datetime="2018-11-14T01:20:03.000Z" itemprop="datePublished">2018-11-14</time>
+        <a href="/Feign-Http-md/">
+            <time datetime="2018-12-16T03:07:11.000Z" itemprop="datePublished">2018-12-16</time>
         </a>
     </div>
 
 
                         
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Docker/">Docker</a>
-    </div>
-
 
                         
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/Docker/">Docker</a>
-    </div>
-
                     </div>
                 
             </header>
@@ -268,35 +258,93 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>容器镜像服务（Container Registry）提供安全的应用镜像托管能力，精确的镜像安全扫描功能，稳定的镜像构建服务，便捷的镜像授权功能，方便用户进行镜像全生命周期管理。容器镜像服务简化了Registry的搭建运维工作，支持多地域的镜像托管，并联合容器服务等云产品，打造云上使用Docker的一体化体验。</p>
+            <p>没有接触Spring Cloud Feign的时候调用其他公司接口都是用<code>java.net.URL</code>或者<code>org.apache.commons.httpclient</code>, 现在可以使用Feign，使用起来比较简单。</p>
 <a id="more"></a>
-<h3 id="新建SpringBoot应用并配置DockerFile"><a href="#新建SpringBoot应用并配置DockerFile" class="headerlink" title="新建SpringBoot应用并配置DockerFile"></a>新建SpringBoot应用并配置DockerFile</h3><p>参考<a href="https://blog.aprcode.com/Spring-Boot-docker/" target="_blank" rel="noopener">「Spring Boot」 Docker打包镜像</a>，新建<code>Spring-Boot-Docker-Aliyun</code>项目<br><img src="http://paz1myrij.bkt.clouddn.com/20181114093241.png" alt=""></p>
-<p>修改配置文件<code>application.properties</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.port= 8099</span><br></pre></td></tr></table></figure></p>
-<p>Docker 打包，打包过程参照<a href="https://blog.aprcode.com/Spring-Boot-docker/" target="_blank" rel="noopener">「Spring Boot」 Docker打包镜像</a></p>
-<h3 id="开通阿里镜像服务"><a href="#开通阿里镜像服务" class="headerlink" title="开通阿里镜像服务"></a>开通阿里镜像服务</h3><p>访问<code>https://dev.aliyun.com/search.html</code>进入管理中心<br><img src="http://paz1myrij.bkt.clouddn.com/20181114102703.png" alt=""></p>
-<p>创建命名空间<br><img src="http://paz1myrij.bkt.clouddn.com/20181114102809.png" alt=""></p>
-<p>设置Registry登录密码，非阿里云登录密码<br><img src="http://paz1myrij.bkt.clouddn.com/20181114102909.png" alt=""></p>
-<p>第一次创建会出现教程，和github 刚创建项目一样，会告知如果推送<br><img src="http://paz1myrij.bkt.clouddn.com/20181114103031.png" alt=""></p>
-<h3 id="推送镜像"><a href="#推送镜像" class="headerlink" title="推送镜像"></a>推送镜像</h3><p>登录阿里云Docker Registry<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> docker login --username=134******93@163.com registry.cn-hangzhou.aliyuncs.com</span><br><span class="line"><span class="meta">$</span> Password: </span><br><span class="line"><span class="meta">$</span> Login Succeeded</span><br></pre></td></tr></table></figure></p>
-<p>将镜像推送到Registry</p>
+<p>关于如何使用<code>Feign</code>可以查看<a href="https://blog.aprcode.com/sc-f-e-06/" target="_blank" rel="noopener">【Spring cloud】第六篇 Declarative REST Client | 声明性客户端 - Feign</a></p>
+<p>新建<code>Spring cloud</code>基础项目    </p>
+<h3 id="创建eureka-server工程"><a href="#创建eureka-server工程" class="headerlink" title="创建eureka-server工程"></a>创建<code>eureka-server</code>工程</h3><p>可以参考 <a href="https://blog.aprcode.com/sc-f-e-01/" target="_blank" rel="noopener">【Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka</a>      </p>
+<h3 id="创建server-feign工程"><a href="#创建server-feign工程" class="headerlink" title="创建server-feign工程"></a>创建<code>server-feign</code>工程</h3><p>可以参考 <a href="https://blog.aprcode.com/sc-f-e-06/" target="_blank" rel="noopener">【Spring cloud】第六篇 Declarative REST Client | 声明性客户端 - Feign</a>    </p>
+<ul>
+<li>添加Feign接口 <code>com.cyinfotech.serverfeign.services.ApiOpenService.java</code></li>
+</ul>
+<p>在<code>@FeignClient</code> 设置<code>url</code>为http 基础地址，在各个方法上添加<code>@PostMapping</code>注解为<code>api</code>地址</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cyinfotech.serverfeign.services;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.openfeign.FeignClient;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 煮酒泛舟.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@title</span> ApiOpen</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span> feign-http</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> ApiOpen</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@createtime</span> 2018-12-16 11:43</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@FeignClient</span>(url = <span class="string">"https://api.apiopen.top"</span>, value = <span class="string">"ApiOpenService"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ApiOpenService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 随机单句诗词推荐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/singlePoetry"</span>)</span><br><span class="line">    <span class="function">String <span class="title">singlePoetry</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 随机一首诗词推荐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/recommendPoetry"</span>)</span><br><span class="line">    <span class="function">String <span class="title">recommendPoetry</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 搜索古诗词</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/searchPoetry"</span>)</span><br><span class="line">    <span class="function">String <span class="title">searchPoetry</span><span class="params">(@RequestParam(<span class="string">"name"</span>)</span> String name)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在启动类添加测试代码<br>添加注解<code>@EnableFeignClients(clients = {ApiOpenService.class})</code></li>
+</ul>
+<pre><code class="java">
+<span class="keyword">package</span> com.cyinfotech.serverfeign;
+
+<span class="keyword">import</span> com.cyinfotech.serverfeign.services.ApiOpenService;
+<span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span class="keyword">import</span> org.springframework.boot.SpringApplication;
+<span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+<span class="keyword">import</span> org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+<span class="keyword">import</span> org.springframework.cloud.openfeign.EnableFeignClients;
+<span class="keyword">import</span> org.springframework.web.bind.annotation.*;
+
+<span class="comment">/**</span>
+<span class="comment"> * <span class="doctag">@author</span> 煮酒泛舟</span>
+<span class="comment"> * <span class="doctag">@date</span> 2018年12月16日11:49:06</span>
+<span class="comment"> *</span>
+<span class="comment"> */</span>
+<span class="meta">@SpringBootApplication</span>
+<span class="meta">@EnableEurekaClient</span>
+<span class="meta">@RestController</span>
+<span class="meta">@EnableFeignClients</span>(clients = {ApiOpenService.class})
+<span class="meta">@RequestMapping</span>(<span class="string">"/api"</span>)
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServerFeignApplication</span> </span>{
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        SpringApplication.run(ServerFeignApplication.class, args);
+    }
+
+    <span class="meta">@Autowired</span>
+    ApiOpenService apiOpenService;
+
+    <span class="meta">@RequestMapping</span>(<span class="string">"/singlePoetry"</span>)
+    <span class="function"><span class="keyword">public</span> String <span class="title">searchSinglePoetry</span><span class="params">()</span> </span>{
+
+        <span class="keyword">return</span> apiOpenService.singlePoetry();
+    }
+
+    <span class="meta">@RequestMapping</span>(<span class="string">"/recommendPoetry"</span>)
+    <span class="function"><span class="keyword">public</span> String <span class="title">searchRecommendPoetry</span><span class="params">()</span> </span>{
+
+        <span class="keyword">return</span> apiOpenService.recommendPoetry();
+    }
+
+    <span class="meta">@GetMapping</span>(<span class="string">"/searchPoetry"</span>)
+    <span class="function"><span class="keyword">public</span> String <span class="title">searchPoetry</span><span class="params">(@RequestParam(<span class="string">"name"</span>)</span> String name) </span>{
+
+        <span class="keyword">return</span> apiOpenService.searchPoetry(name);
+    }
+
+}
+
+
+
+</code></pre>
+<p>启动 <code>EurekaServerApplication</code> &gt; <code>ServerFeignApplication</code>    </p>
+<ul>
+<li><p>访问：<a href="http://localhost:8085/api/singlePoetry" target="_blank" rel="noopener">http://localhost:8085/api/singlePoetry</a></p>
 <blockquote>
-<p>docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/aprcode/aprcode:[镜像版本号]</p>
+<p>{“code”:200,”message”:”成功!”,”result”:{“author”:”苏轼”,”origin”:”临江仙·夜饮东坡醒复醉”,”category”:”古诗文-人生-梦想”,”content”:”长恨此身非我有，何时忘却营营。”}}</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> docker images</span><br><span class="line">REPOSITORY                          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">aprcode/spring-boot-docker-aliyun   latest              671bc04fb203        17 minutes ago      119MB</span><br><span class="line">openjdk                             8-jdk-alpine        97bc1352afde        2 weeks ago         103MB</span><br><span class="line"><span class="meta">$</span> docker tag 671bc04fb203 registry.cn-hangzhou.aliyuncs.com/aprcode/aprcode:aprcode.1.0.0</span><br><span class="line"><span class="meta">$</span> docker images</span><br><span class="line">REPOSITORY                                          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">aprcode/spring-boot-docker-aliyun                   latest              671bc04fb203        19 minutes ago      119MB</span><br><span class="line">registry.cn-hangzhou.aliyuncs.com/aprcode/aprcode   aprcode.1.0.0       671bc04fb203        19 minutes ago      119MB</span><br><span class="line">openjdk                                             8-jdk-alpine        97bc1352afde        2 weeks ago         103MB</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> docker push registry.cn-hangzhou.aliyuncs.com/aprcode/aprcode:aprcode.1.0.0</span><br><span class="line">The push refers to repository [registry.cn-hangzhou.aliyuncs.com/aprcode/aprcode]</span><br><span class="line">5c52652cc20a: Pushed </span><br><span class="line">ed6f0bd39121: Layer already exists </span><br><span class="line">0c3170905795: Layer already exists </span><br><span class="line">df64d3292fd6: Layer already exists </span><br><span class="line">aprcode.1.0.0: digest: sha256:88df67826b192791332ee79659f091634f04764d6c3d0feacc5dfd0c8cab2333 size: 1159</span><br></pre></td></tr></table></figure>
-<p>因为我之前推送了一个，所以显示已存在， 不影响。</p>
-<h3 id="拉取镜像并启动"><a href="#拉取镜像并启动" class="headerlink" title="拉取镜像并启动"></a>拉取镜像并启动</h3><p>推送成功后可以在任何一个地方登录你的仓库拉取镜像了，接下来我登录我的阿里轻量应用服务器拉取我们推送的镜像，并启动。服务器已安装Docker</p>
-<p>登录服务器<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh root@***** -p 22</span><br><span class="line">root@******'s password:</span><br><span class="line">Last failed login: Wed Nov 14 10:54:19 CST 2018 from 59.173.241.186 on ssh:notty</span><br><span class="line">There were 2 failed login attempts since the last successful login.</span><br><span class="line">Last login: Wed Nov 14 08:41:08 2018 from 59.173.241.186</span><br><span class="line"></span><br><span class="line">Welcome to Alibaba Cloud Elastic Compute Service !</span><br><span class="line">[root@izwz99u47743ten25slpjpz ~]#</span><br></pre></td></tr></table></figure></p>
-<p>登录阿里云Docker Registry</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izwz99u47743ten25slpjpz ~]# docker login --username=134******93@163.com registry.cn-hangzhou.aliyuncs.com</span><br><span class="line">Password: </span><br><span class="line">Login Succeeded</span><br></pre></td></tr></table></figure>
-<p>从Registry中拉取镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@izwz99u47743ten25slpjpz ~]# docker pull registry.cn-hangzhou.aliyuncs.com/aprcode/aprcode:aprcode.1.0.0</span><br><span class="line">aprcode.1.0.0: Pulling from aprcode/aprcode</span><br><span class="line">4fe2ade4980c: Already exists</span><br><span class="line">6fc58a8d4ae4: Already exists</span><br><span class="line">ef87ded15917: Already exists</span><br><span class="line">df60cf9e6a56: Pull complete</span><br><span class="line">Digest: sha256:88df67826b192791332ee79659f091634f04764d6c3d0feacc5dfd0c8cab2333</span><br><span class="line">Status: Downloaded newer image for registry.cn-hangzhou.aliyuncs.com/aprcode/aprcode:aprcode.1.0.0</span><br><span class="line">[root@izwz99u47743ten25slpjpz ~]#</span><br></pre></td></tr></table></figure>
-<p>启动镜像<br>将80端口映射到内网8099 端口上<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izwz99u47743ten25slpjpz ~]# docker run -d -p 80:8099 671bc04fb203</span><br><span class="line">d38062b4eb07a40f6a80ac28c4ec38d992bc534fd7645a34401e3dfb67492b92</span><br><span class="line">[root@izwz99u47743ten25slpjpz ~]#</span><br></pre></td></tr></table></figure></p>
-<p>访问 <code>http://www.aprcode.com/</code>   </p>
+</li>
+<li><p>访问：<a href="http://192.168.1.108:8085/api/recommendPoetry" target="_blank" rel="noopener">http://192.168.1.108:8085/api/recommendPoetry</a>     </p>
 <blockquote>
-<p>{“name”:”aprcode.com”}</p>
+<p>{“code”:200,”message”:”成功!”,”result”:{“title”:”送卢孟明还上都”,”content”:”江皋北风至，归客独伤魂。|楚水逢乡雁，平陵忆故园。|征骖嘶别馆，落日隐寒原。|应及秦川望，春华满国门。”,”authors”:”皎然”}}</p>
 </blockquote>
-<p>欢迎关注我的公众号，跟我留言。<br><img src="http://paz1myrij.bkt.clouddn.com/qrcode_for_gh_22df58e4959f_258.jpg" alt=""></p>
-<p>博客地址：<a href="https://blog.aprcode.com/Spring-Boot-Docker-Aliyun" target="_blank" rel="noopener">Spring-Boot-Docker-Aliyun</a><br>教程源码Github地址：<a href="https://github.com/lixhbs/SpringBoot/tree/master/Spring-Boot-Docker-Aliyun" target="_blank" rel="noopener">Spring-Boot-Docker-Aliyun</a><br>教程源码Gitee地址：<a href="https://gitee.com/Lixhbs/SpringBoot/tree/master/Spring-Boot-Docker-Aliyun" target="_blank" rel="noopener">Spring-Boot-Docker-Aliyun</a></p>
+</li>
+<li><p>访问：<a href="http://192.168.1.108:8085/api/searchPoetry?name=黄鹤楼" target="_blank" rel="noopener">http://192.168.1.108:8085/api/searchPoetry?name=黄鹤楼</a>    </p>
+<blockquote>
+<p>{“code”:200,”message”:”成功!”,”result”:[{“title”:”黄鹤楼”,”content”:”黄鹤何年去杳冥，高楼千载倚江城。|碧云朝卷四山景，流水夜传三峡声。|柳暗西州供骋望，草芳南浦遍离情。|登临一晌须回首，看却乡心万感生。”,”authors”:”卢郢”},{“title”:”黄鹤楼”,”content”:”云锁吕公洞，月明黄鹤楼。|抱关非故卒，谁见羽衣游。”,”authors”:”王十朋”},{“title”:”黄鹤楼”,”content”:”手把仙人绿玉枝，吾行忽及早秋期。|苍龙阙角归何晚，黄鹤楼中醉不知。|江汉交流波渺渺，晋唐遗迹草离离。|平生最喜听长笛，裂石穿云何处吹。”,”authors”:”陆游”},{“title”:”黄鹤楼”,”content”:”长江巨浪拍天浮，城郭相望万景收。|汉水北吞云梦入，蜀江西带洞庭流。|角声交送千家月，帆影中分两岸秋。|黄鹤楼高人不见，却随鹦鹉过汀洲。”,”authors”:”游似”},{“title”:”黄鹤楼”,”content”:”翚飞栋宇据城端，车马尘中得异观。|双眼莫供淮地阔，一江不尽蜀波寒。|老仙横笛月亭午，骚客怀乡日欲残。|独抚遗踪增慨慕，徘徊不忍下层栏。”,”authors”:”罗与之”},{“title”:”黄鹤楼”,”content”:”崔颢题诗在上头，登临何必更冥搜。|楼前黄鹤不重见，槛外长江空自流。|万顷烟云连梦泽，一川风景借西州。”,”authors”:”张颙”},{“title”:”黄鹤楼”,”content”:”昔人已乘白云去，旧国连天不知处。|思量费子真仙子，从他浮世悲生死。|黄鹤一去不复返，光阴流转忽已晚。”,”authors”:”王得臣”},{“title”:”黄鹤楼”,”content”:”登真者谁子，昔有费公祎。|白日玉书下，青天驾鹤飞。|此地少留憩，神标怅依依。|振裾谢尘浊，与尔方远违。|层楼宠陈迹，江山长四围。|登临美商素，雨气薄西晖。|水落州觜嫩，风豪帆背肥。|飘然起遐想，琳馆閟岩扉。|明月识悠阔，白云疑是非。|金桃未遽熟，薤露虞先晞。|高树两华表，长招羽驾归。|灵瓢五色剂，定与遗民挥。|自顾乏仙质，延生犹可希。|刀圭傥不吝，如饱首阳饥。”,”authors”:”贺铸”}]}</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p>欢迎关注我的公众号，跟我留言。<br><img src="http://paz1myrij.bkt.clouddn.com/qrcode_for_gh_22df58e4959f_258.jpg" alt=""><br><img src="http://paz1myrij.bkt.clouddn.com/qrcode_for_gh_22df58e4959f_258.jpg" alt=""><br>博客地址：<a href="https://blog.aprcode.com/sc-f-e-06/" target="_blank" rel="noopener">https://blog.aprcode.com/sc-f-e-06/</a><br>教程源码Github地址：<a href="https://github.com/lixhbs/SpringCloudEnglish/tree/master/sc-f-e-06" target="_blank" rel="noopener">sc-f-e-06</a><br>教程源码Gitee地址：<a href="https://gitee.com/Lixhbs/SpringCloudEnglish/tree/master/sc-f-e-06" target="_blank" rel="noopener">sc-f-e-06</a></p>
 
         
         </div>
@@ -369,19 +417,10 @@
         
 <nav id="article-nav">
     
-        <a href="/Spring-Boot-Docker-ssl/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más nuevo</strong>
-            <div class="article-nav-title">
-                
-                    「Spring Boot」Docker配置SSL证书（免费证书）
-                
-            </div>
-        </a>
     
-    
-        <a href="/Spring-Boot-docker/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/Spring-Boot-Docker-ssl/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Más viejo</strong>
-            <div class="article-nav-title">「Spring Boot」 Docker打包镜像</div>
+            <div class="article-nav-title">「Spring Boot」Docker配置SSL证书（免费证书）</div>
         </a>
     
 </nav>
