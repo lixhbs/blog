@@ -12,12 +12,12 @@
 <meta property="og:site_name" content="煮酒泛舟的技术栈">
 <meta property="og:description" content="路由是微服务架构不可或缺的一部分。例如，/可以映射到您的Web应用程序，/api/users映射到用户服务，/api/shop映射到商店服务。 Zuul是Netflix的基于JVM的路由器和服务器端负载均衡器  Routing is an integral part of a microservice architecture. For example, / may be mapped to yo">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://paz1myrij.bkt.clouddn.com/GvuCOnQi_400x400.jpg">
-<meta property="og:updated_time" content="2018-10-31T09:09:06.529Z">
+<meta property="og:image" content="http://qiniuimages.aprcode.com/GvuCOnQi_400x400.jpg">
+<meta property="og:updated_time" content="2018-12-16T13:35:58.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Spring cloud】第四篇 Router and Filter | 路由和过滤器 - Zuul">
 <meta name="twitter:description" content="路由是微服务架构不可或缺的一部分。例如，/可以映射到您的Web应用程序，/api/users映射到用户服务，/api/shop映射到商店服务。 Zuul是Netflix的基于JVM的路由器和服务器端负载均衡器  Routing is an integral part of a microservice architecture. For example, / may be mapped to yo">
-<meta name="twitter:image" content="http://paz1myrij.bkt.clouddn.com/GvuCOnQi_400x400.jpg">
+<meta name="twitter:image" content="http://qiniuimages.aprcode.com/GvuCOnQi_400x400.jpg">
     
 
     
@@ -273,7 +273,7 @@
 <p>要对路由器进行更精细的操作，可以指定独立的路径和ServerID（Eureka 服务发现），如下配置：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span><br><span class="line"><span class="attr">  routes:</span></span><br><span class="line"><span class="attr">    users:</span></span><br><span class="line"><span class="attr">      path:</span> <span class="string">/myusers/**</span></span><br><span class="line"><span class="attr">      serviceId:</span> <span class="string">users_service</span></span><br></pre></td></tr></table></figure></p>
 <p>也可以直接配置http路径的物理位置</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span><br><span class="line"><span class="attr"> routes:</span></span><br><span class="line"><span class="attr">   users:</span></span><br><span class="line"><span class="attr">     path:</span> <span class="string">/myusers/**</span></span><br><span class="line"><span class="attr">     url:</span> <span class="attr">http://example.com/users_service</span></span><br></pre></td></tr></table></figure>
-<h3 id="实际操作"><a href="#实际操作" class="headerlink" title="实际操作"></a>实际操作</h3><p>创建<code>server-zuul</code>工程<br><img src="http://paz1myrij.bkt.clouddn.com/20181029161740.png" alt=""></p>
+<h3 id="实际操作"><a href="#实际操作" class="headerlink" title="实际操作"></a>实际操作</h3><p>创建<code>server-zuul</code>工程<br><img src="http://qiniuimages.aprcode.com/20181029161740.png" alt=""></p>
 <p>完整<code>pom.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.cyinfotech<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>server-zuul<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>server-zuul<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.cyinfotech<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sc-f-e-04<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-zuul<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--Eureka-Client--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>修改父工程<code>pom.xml</code>，在<code>modules</code>添加<code>server-ribbon</code> </p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>server-zuul<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -317,7 +317,7 @@ public class EurekaClientApplication {
 </blockquote>
 <p>本篇教程就到这，至于更深的教程我会加紧学习然后写出来。</p>
 <hr>
-<p>欢迎关注我的公众号，跟我留言。<br><img src="http://paz1myrij.bkt.clouddn.com/qrcode_for_gh_22df58e4959f_258.jpg" alt=""></p>
+<p>欢迎关注我的公众号，跟我留言。<br><img src="http://qiniuimages.aprcode.com/qrcode_for_gh_22df58e4959f_258.jpg" alt=""></p>
 <p>博客地址：<a href="https://blog.aprcode.com/sc-f-e-04/" target="_blank" rel="noopener">https://blog.aprcode.com/sc-f-e-04/</a><br>教程源码Github地址：<a href="https://github.com/lixhbs/SpringCloudEnglish/tree/master/sc-f-e-04" target="_blank" rel="noopener">sc-f-e-04</a><br>教程源码Gitee地址：<a href="https://gitee.com/Lixhbs/SpringCloudEnglish/tree/master/sc-f-e-04" target="_blank" rel="noopener">sc-f-e-04</a></p>
 
         
@@ -401,9 +401,9 @@ public class EurekaClientApplication {
         </a>
     
     
-        <a href="/sc-f-e-03/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/sc-f-e-01/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">【Spring Cloud】第三篇 Client Side Load Balancer | 负载均衡 - Ribbon</div>
+            <div class="article-nav-title">【Spring Cloud】第一篇 Service Discovery | 服务发现 - Eureka</div>
         </a>
     
 </nav>
@@ -429,6 +429,44 @@ public class EurekaClientApplication {
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/sc-f-e-02/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://qiniuimages.aprcode.com/20181023173931.png)" alt="【Spring Cloud】第二篇 Circuit Breaker | 断路器 - Hystrix" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a></p>
+                            <p class="item-title"><a href="/sc-f-e-02/" class="title">【Spring Cloud】第二篇 Circuit Breaker | 断路器 - Hystrix</a></p>
+                            <p class="item-date"><time datetime="2018-12-16T13:36:17.497Z" itemprop="datePublished">2018-12-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/sc-f-e-03/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://qiniuimages.aprcode.com/20181023173931.png)" alt="【Spring Cloud】第三篇 Client Side Load Balancer | 负载均衡 - Ribbon" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Spring-Cloud/">Spring Cloud</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/Spring-Cloud/Ribbon/">Ribbon</a></p>
+                            <p class="item-title"><a href="/sc-f-e-03/" class="title">【Spring Cloud】第三篇 Client Side Load Balancer | 负载均衡 - Ribbon</a></p>
+                            <p class="item-date"><time datetime="2018-12-16T13:36:09.162Z" itemprop="datePublished">2018-12-16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -474,7 +512,7 @@ public class EurekaClientApplication {
                             <a href="/Spring-Boot-Docker-Aliyun/" class="thumbnail">
     
     
-        <span style="background-image:url(http://paz1myrij.bkt.clouddn.com/1_9hGvYE5jegHm1r_97gH-jQ.png)" alt="「Spring Boot」 推送Docker镜像到阿里云镜像服务" class="thumbnail-image"></span>
+        <span style="background-image:url(http://qiniuimages.aprcode.com/1_9hGvYE5jegHm1r_97gH-jQ.png)" alt="「Spring Boot」 推送Docker镜像到阿里云镜像服务" class="thumbnail-image"></span>
     
 </a>
 
@@ -484,44 +522,6 @@ public class EurekaClientApplication {
                             <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
                             <p class="item-title"><a href="/Spring-Boot-Docker-Aliyun/" class="title">「Spring Boot」 推送Docker镜像到阿里云镜像服务</a></p>
                             <p class="item-date"><time datetime="2018-11-14T01:20:03.000Z" itemprop="datePublished">2018-11-14</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/Spring-Boot-docker/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://paz1myrij.bkt.clouddn.com/1_9hGvYE5jegHm1r_97gH-jQ.png)" alt="「Spring Boot」 Docker打包镜像" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Docker/">Docker</a></p>
-                            <p class="item-title"><a href="/Spring-Boot-docker/" class="title">「Spring Boot」 Docker打包镜像</a></p>
-                            <p class="item-date"><time datetime="2018-11-12T08:31:30.000Z" itemprop="datePublished">2018-11-12</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/sc-f-e-06/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://paz1myrij.bkt.clouddn.com/GvuCOnQi_400x400.jpg)" alt="【Spring cloud】第六篇 Declarative REST Client | 声明性客户端 - Feign" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/sc-f-e-06/" class="title">【Spring cloud】第六篇 Declarative REST Client | 声明性客户端 - Feign</a></p>
-                            <p class="item-date"><time datetime="2018-11-06T04:00:00.000Z" itemprop="datePublished">2018-11-06</time></p>
                         </div>
                     </li>
                 
@@ -543,7 +543,7 @@ public class EurekaClientApplication {
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">6</span></li></ul>
         </div>
     </div>
 
