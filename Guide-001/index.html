@@ -14,7 +14,7 @@
 <meta property="og:description" content="题目：System.out.println(3 | 9); 与 &amp;amp; 或“&amp;amp;” 和 “&amp;amp;&amp;amp;” 、 “|”和”||”都是逻辑运算符,”&amp;amp;”、”|” 是非短路的，”&amp;amp;&amp;amp;” 、”||”是短路的。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://qiniuimages.aprcode.com/qrcode_for_gh_22df58e4959f_258.jpg">
-<meta property="og:updated_time" content="2019-02-21T09:59:23.556Z">
+<meta property="og:updated_time" content="2019-02-21T10:01:35.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「Guide」逻辑与&amp;&amp;、逻辑或||、按位与&amp;、按位或 |">
 <meta name="twitter:description" content="题目：System.out.println(3 | 9); 与 &amp;amp; 或“&amp;amp;” 和 “&amp;amp;&amp;amp;” 、 “|”和”||”都是逻辑运算符,”&amp;amp;”、”|” 是非短路的，”&amp;amp;&amp;amp;” 、”||”是短路的。">
@@ -269,9 +269,9 @@
         
             
             <h3 id="题目：System-out-println-3-9"><a href="#题目：System-out-println-3-9" class="headerlink" title="题目：System.out.println(3 | 9);"></a>题目：System.out.println(3 | 9);</h3><ul>
-<li>与 &amp; 或<br>“&amp;” 和 “&amp;&amp;” 、 “|”和”||”都是逻辑运算符,”&amp;”、”|” 是非短路的，”&amp;&amp;” 、”||”是短路的。    <a id="more"></a>   
-</li>
+<li>与 &amp; 或<br>“&amp;” 和 “&amp;&amp;” 、 “|”和”||”都是逻辑运算符,”&amp;”、”|” 是非短路的，”&amp;&amp;” 、”||”是短路的。       </li>
 </ul>
+<a id="more"></a>       
 <table>
 <thead>
 <tr>
@@ -307,7 +307,7 @@
 <ul>
 <li>按位与、或，还可以进行二进制运算    </li>
 </ul>
-<p>按位与：都为1时才为1，则为0<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">0</span> &amp; <span class="number">0</span>); &gt;&gt; <span class="number">0</span></span><br><span class="line">System.out.println(<span class="number">0</span> &amp; <span class="number">1</span>); &gt;&gt; <span class="number">0</span></span><br><span class="line">System.out.println(<span class="number">1</span> &amp; <span class="number">0</span>); &gt;&gt; <span class="number">0</span></span><br><span class="line">System.out.println(<span class="number">1</span> &amp; <span class="number">1</span>); &gt;&gt; <span class="number">1</span> </span><br><span class="line">```    </span><br><span class="line">按位或：有一个<span class="number">1</span>就为<span class="number">1</span>，则为<span class="number">0</span>    </span><br><span class="line"></span><br><span class="line">```Java </span><br><span class="line">System.out.println(<span class="number">0</span> | <span class="number">0</span>); &gt;&gt; <span class="number">0</span></span><br><span class="line">System.out.println(<span class="number">0</span> | <span class="number">1</span>); &gt;&gt; <span class="number">1</span></span><br><span class="line">System.out.println(<span class="number">1</span> | <span class="number">0</span>); &gt;&gt; <span class="number">1</span></span><br><span class="line">System.out.println(<span class="number">1</span> | <span class="number">1</span>); &gt;&gt; <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>按位与：都为1时才为1，则为0<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">0</span> &amp; <span class="number">0</span>); &gt;&gt; <span class="number">0</span></span><br><span class="line">System.out.println(<span class="number">0</span> &amp; <span class="number">1</span>); &gt;&gt; <span class="number">0</span></span><br><span class="line">System.out.println(<span class="number">1</span> &amp; <span class="number">0</span>); &gt;&gt; <span class="number">0</span></span><br><span class="line">System.out.println(<span class="number">1</span> &amp; <span class="number">1</span>); &gt;&gt; <span class="number">1</span> </span><br><span class="line">```    </span><br><span class="line">按位或：有一个<span class="number">1</span>就为<span class="number">1</span>，则为<span class="number">0</span>    </span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">```Java </span><br><span class="line">System.out.println(<span class="number">0</span> | <span class="number">0</span>); &gt;&gt; <span class="number">0</span></span><br><span class="line">System.out.println(<span class="number">0</span> | <span class="number">1</span>); &gt;&gt; <span class="number">1</span></span><br><span class="line">System.out.println(<span class="number">1</span> | <span class="number">0</span>); &gt;&gt; <span class="number">1</span></span><br><span class="line">System.out.println(<span class="number">1</span> | <span class="number">1</span>); &gt;&gt; <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>题目解答<br>3 | 9 就是按位或运算</li>
 </ul>
